@@ -10,7 +10,7 @@ const Gallery = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const data = await fetchArtFromRijksMuseum();
+                const data = await fetchArtFromRijksMuseum('p=30');
                 setArtWork(data.artObjects);
                 console.log(data.artObjects);
             } catch (error) {
@@ -22,24 +22,37 @@ const Gallery = () => {
     }, []);
 
     return (
-        <div className='flex flex-wrap gap-8 items-center justify-center border border-green-500'>
-            {artWork.map((item) => (
-                <div
-                    key={item.id}
-                    className='flex flex-col border border-black'
-                >
-                    <Image
-                        src={item.webImage.url}
-                        alt={item.title}
-                        width={400}
-                        height={400}
-                    />
-                    <p className='text-lg font-semibold text-gray-600'>
-                        {item.title}
-                    </p>
-                </div>
-            ))}
-        </div>
+        <section className='border border-green-500 flex flex-col items-center justify-center px-8 mb-16'>
+            <h2 className='font-semibold text-2xl mb-4 text-center'>
+                Our Gallery
+            </h2>
+            <div className='flex flex-wrap gap-8 items-center justify-center '>
+                {artWork.map((item) => (
+                    <div
+                        key={item.id}
+                        className='flex flex-col border border-black md:w-[40%]'
+                    >
+                        <Image
+                            src={item.webImage.url}
+                            alt={item.title}
+                            width={item.webImage.width}
+                            height={item.webImage.height}
+                            layout='responsive'
+                            className='w-full'
+                        />
+                        <p className='text-lg font-bold text-gray-800'>
+                            By: {item.principalOrFirstMaker}
+                        </p>
+                        <p className='text-base font-semibold text-gray-500'>
+                            {item.title}
+                        </p>
+                    </div>
+                ))}
+            </div>
+            <button className='text-center border border-red-500 px-8 py-2 my-8'>
+                Explore Our Gallery
+            </button>
+        </section>
     );
 };
 

@@ -27,9 +27,9 @@ export const fetchArtFromGalleryDetails = async (id) => {
 }
 
 
-export const fetchArtFromRijksMuseum = async () => {
+export const fetchArtFromRijksMuseum = async (query) => {
   try {
-    const response = await axios.get(`${secondaryUrl}?key=${apiKey}`)
+    const response = await axios.get(`${secondaryUrl}?key=${apiKey}&${query}`)
     return response.data
   } catch (error) {
     console.error('Error fetching artworks from Rijksmuseum:', error);
