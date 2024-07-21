@@ -1,6 +1,6 @@
 const Navbar = () => {
     return (
-        <nav className='bg-stone-400 border border-blue-600 gap-y-6 flex flex-col md:flex-row md:items-center md:justify-between px-8 py-8 md:px-16 md:sticky md:top-0'>
+        <nav className='bg-gray-600 border border-blue-600 gap-y-6 flex flex-col md:flex-row md:items-center md:justify-between px-8 py-8 md:px-16 md:sticky md:top-0'>
             <a href='/' className=''>
                 DB ART GALLERY
             </a>
@@ -19,7 +19,7 @@ const Navbar = () => {
                 <input
                     type='text'
                     className='border border-black px-4 w-72 py-2 focus:rounded-none focus:outline-1 focus:outline-yellow-300'
-                    placeholder='Search anything and press enter'
+                    placeholder='Explore DB Art Gallery'
                 />
             </div>
         </nav>

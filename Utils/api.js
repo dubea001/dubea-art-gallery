@@ -1,35 +1,29 @@
 import axios from "axios";
 
-const primaryUrl = process.env.NEXT_PUBLIC_ARTIC_API_URL
-const secondaryUrl = process.env.NEXT_PUBLIC_RIJKSMUSEUM_API_URL
+const baseUrl = process.env.NEXT_PUBLIC_RIJKSMUSEUM_API_URL
 const apiKey = process.env.NEXT_PUBLIC_API_KEY
 
-export const fetchArtFromGallery = async (query) => {
-  try {
-    const response = await axios.get(`${primaryUrl}?q=${query}`)
-    console.log(response.data.data)
-    return response.data.data
-  } catch (error) {
-    console.error('Error fetching artworks from Art Institute of Chicago:', error);
-    return []
-  }
-}
 
-export const fetchArtFromGalleryDetails = async (id) => {
+export const fetchArtFromRijksMuseum = async ({
+  ps = 10,
+  q = '',
+  involvedMaker = '',
+  type = '',
+}) => {
   try {
-    const response = await axios.get(`${primaryUrl}/${id}`)
-    console.log(response.data.data)
-    return response.data.data
-  } catch (error) {
-    console.error('Error fetching artworks from Art Institute of Chicago:', error);
-    return null
-  }
-}
+     let queryParams = new URLSearchParams({
+      key: apiKey,
+      ps: ps,
+      q: q,
+      involvedMaker: involvedMaker,
+      type: type,
+      imgonly: true,
+      toppieces: true
+    });
 
+    const queryString = queryParams.toString()
 
-export const fetchArtFromRijksMuseum = async (query) => {
-  try {
-    const response = await axios.get(`${secondaryUrl}?key=${apiKey}&${query}`)
+    const response = await axios.get(`${baseUrl}?${queryString}`)
     return response.data
   } catch (error) {
     console.error('Error fetching artworks from Rijksmuseum:', error);
@@ -40,7 +34,7 @@ export const fetchArtFromRijksMuseum = async (query) => {
 
 export const fetchArtFromRijksMuseumDetails = async (id) => {
   try {
-    const response = await axios.get(`${secondaryUrl}/${id}?key=${apiKey}`)
+    const response = await axios.get(`${baseUrl}/${id}?key=${apiKey}`)
     console.log(response.data.artObject)
   } catch (error) {
     console.error('Error fetching artwork details from Rijksmuseum:', error);
