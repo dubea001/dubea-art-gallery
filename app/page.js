@@ -11,9 +11,9 @@ export default function Home() {
     return (
         <main className=''>
             <Navbar />
-            <Hero />
+            {/* <Hero />
             <FeaturedArtist />
-            <ArtCategory />
+            <ArtCategory /> */}
             <Gallery />
             <Footer />
         </main>

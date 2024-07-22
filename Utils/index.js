@@ -4,3 +4,7 @@ export const types = [
   'sculpture',
   'drawing',
 ];
+
+export const reduceText = (item) => {
+    return item.slice(0, 24) + '..'
+} 

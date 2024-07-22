@@ -24,13 +24,12 @@ const ArtCategory = () => {
                     newData[types[index]] = result.artObjects;
                 });
                 setData(newData);
-                console.log(newData);
             } catch (error) {
                 console.error('failed to fetch data types', error);
             }
         };
 
-        fetchDataCategories();
+        // fetchDataCategories();
     }, []);
 
     return (
@@ -40,7 +39,7 @@ const ArtCategory = () => {
                 {types.map((type) => (
                     <div
                         key={type}
-                        className='border border-gray-800 gap-4 py-4 px-2 min-w-[80%] md:min-w-[60%] lg:min-w-[30%]'
+                        className='border border-gray-800 gap-4 py-4 px-2 min-w-[80%] md:min-w-[60%] lg:min-w-[30%] hover:shadow-[-5px_5px_0px_#1F2937] transition duration-200'
                     >
                         <div className='grid grid-cols-2 w-full h-[90%] place-items-center gap-x-0 gap-y-2'>
                             {data[type]?.map((art, index) => (
@@ -55,7 +54,7 @@ const ArtCategory = () => {
                                 </div>
                             ))}
                         </div>
-                        <button className='bg-gray-800 text-white px-8 py-2 font-mono text-lg text-semi-bold my-2'>
+                        <button className='bg-gray-800 text-white px-8 py-2 font-mono text-lg text-semi-bold my-2 transition duration-200 hover:bg-gray-700'>
                             More {type}
                         </button>
                     </div>

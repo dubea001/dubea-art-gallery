@@ -1,6 +1,6 @@
 const Navbar = () => {
     return (
-        <nav className='bg-gray-600 border border-blue-600 gap-y-6 flex flex-col md:flex-row md:items-center md:justify-between px-8 py-8 md:px-16 md:sticky md:top-0'>
+        <nav className='bg-gray-800 gap-y-6 flex flex-col md:flex-row md:items-center md:justify-between px-8 py-8 md:px-16 md:sticky md:top-0'>
             <a href='/' className=''>
                 DB ART GALLERY
             </a>
