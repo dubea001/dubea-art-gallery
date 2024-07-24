@@ -3,6 +3,7 @@ import { types } from '../Utils/index';
 // import ArtCard from './ArtCard';
 import { fetchArtFromRijksMuseum } from '@/Utils/api';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const ArtCategory = () => {
     const [data, setData] = useState({
@@ -29,7 +30,7 @@ const ArtCategory = () => {
             }
         };
 
-        // fetchDataCategories();
+        fetchDataCategories();
     }, []);
 
     return (
@@ -54,9 +55,12 @@ const ArtCategory = () => {
                                 </div>
                             ))}
                         </div>
-                        <button className='bg-gray-800 text-white px-8 py-2 font-mono text-lg text-semi-bold my-2 transition duration-200 hover:bg-gray-700'>
+                        <Link
+                            href={`/categories/${type}`}
+                            className='bg-gray-800 text-white px-8 py-2 font-mono text-lg text-semi-bold my-2 transition duration-200 hover:bg-gray-700'
+                        >
                             More {type}
-                        </button>
+                        </Link>
                     </div>
                 ))}
             </div>

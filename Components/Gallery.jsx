@@ -23,7 +23,7 @@ const Gallery = () => {
                 setLoading(false);
             }
         };
-        fetchData();
+        // fetchData();
     }, []);
 
     if (loading) {
@@ -35,7 +35,7 @@ const Gallery = () => {
     }
 
     return (
-        <section className='flex flex-col items-center justify-center px-8 mb-16'>
+        <section className='flex flex-col items-center justify-center px-8 mb-16 border border-green-600 min-h-screen'>
             <h2 className='font-semibold text-2xl mb-4 text-center'>
                 Our Gallery
             </h2>

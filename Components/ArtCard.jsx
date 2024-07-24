@@ -8,7 +8,7 @@ const ArtCard = ({ art }) => {
             className='flex flex-col border border-gray-800 p-2 md:w-[40%] lg:w-[30%] min-h-[35rem] hover:shadow-[-5px_5px_0px_#1F2937] transition duration-200'
         >
             <Image
-                src={art.webImage.url}
+                src={art.webImage?.url}
                 alt={art.title}
                 width={art.webImage.width}
                 height={art.webImage.height}

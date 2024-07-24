@@ -14,12 +14,13 @@ export const fetchArtFromRijksMuseum = async ({
      let queryParams = new URLSearchParams({
       key: apiKey,
       ps: ps,
-      q: q,
-      involvedMaker: involvedMaker,
-      type: type,
       imgonly: true,
       toppieces: true
     });
+
+    if (q) queryParams.append('q', q )
+    if (type) queryParams.append('type', type )
+    if (involvedMaker) queryParams.append('involvedMaker', involvedMaker )
 
     const queryString = queryParams.toString()
 

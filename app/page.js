@@ -11,10 +11,10 @@ export default function Home() {
     return (
         <main className=''>
             <Navbar />
-            {/* <Hero />
-            <FeaturedArtist />
-            <ArtCategory /> */}
-            <Gallery />
+            <Hero />
+            {/*  <FeaturedArtist /> */}
+            <ArtCategory />
+            {/* <Gallery /> */}
             <Footer />
         </main>
     );
